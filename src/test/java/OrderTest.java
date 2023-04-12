@@ -1,6 +1,6 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import order.GeneratorOfOrder;
 import order.OrderCreateResponse;
@@ -27,7 +27,7 @@ public class OrderTest {
     public OrderTest(List<String> color){
         this.color = color;
     }
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Цвет самоката. Тестовые данные: {0}")
     public static Object[][] getColor() {
         return new Object[][]{
                 {List.of("BLACK")},
@@ -37,13 +37,14 @@ public class OrderTest {
         };
     }
     @Before
+    @Step("Подготовка данных для создания заказа")
     public void setUp() {
         orderUser = new OrderUser();
         orderScooter = GeneratorOfOrder.getNewOrder(color);
     }
 
     @Test
-    @Description("Создаем новый заказ")
+    @Step("Создаем новый заказ")
     public void orderCanBeCreated(){
         ValidatableResponse responseCreate = orderUser.createOrder(orderScooter);
         int actualStatusCodeCreate = responseCreate.extract().statusCode();
@@ -55,6 +56,7 @@ public class OrderTest {
         assertTrue(responseBody.contains("track"));
     }
     @After
+    @Step("Удаляем созданный заказ")
     public void cleanUp() {
         orderUser.cancelOrder(actualTrackNumber);
     }
