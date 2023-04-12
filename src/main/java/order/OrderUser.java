@@ -1,10 +1,15 @@
+package order;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import courier.CourierClient;
 import io.restassured.response.ValidatableResponse;
+import order.OrderScooter;
+import order.OrderTrackNumber;
 
 import static io.restassured.RestAssured.given;
 
-public class OrderUser extends CourierClient{
+public class OrderUser extends CourierClient {
     public static final String CREATE_PATH = "/api/v1/orders";
     public static final String CANCEL_PATH = "/api/v1/orders/cancel";
 

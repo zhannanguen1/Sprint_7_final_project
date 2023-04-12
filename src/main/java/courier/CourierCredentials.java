@@ -1,3 +1,5 @@
+package courier;
+
 public class CourierCredentials {
     private String login;
     private String password;

@@ -1,5 +1,6 @@
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
+import order.OrderUser;
 import org.junit.Before;
 import org.junit.Test;
 

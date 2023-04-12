@@ -1,3 +1,7 @@
+package courier;
+
+import courier.Courier;
+
 import java.util.Random;
 
 public class UniqueData {

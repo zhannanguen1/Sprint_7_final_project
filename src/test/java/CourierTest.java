@@ -1,3 +1,7 @@
+import courier.Courier;
+import courier.CourierClient;
+import courier.CourierCredentials;
+import courier.UniqueData;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;

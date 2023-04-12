@@ -1,6 +1,7 @@
+import courier.CourierClient;
+import courier.CourierCredentials;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

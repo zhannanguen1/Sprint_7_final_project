@@ -1,6 +1,8 @@
+package courier;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import groovyjarjarantlr4.v4.codegen.model.SrcOp;
+import courier.Courier;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 
