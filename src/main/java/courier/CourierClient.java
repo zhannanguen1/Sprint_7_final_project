@@ -2,7 +2,6 @@ package courier;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import courier.Courier;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 
@@ -16,10 +15,11 @@ public class CourierClient {
     public static final String LOGIN_PATH = "/api/v1/courier/login";
     public static final String DELETE_PATH = "/api/v1/courier/:";
 
-    public CourierClient(){
+    public CourierClient() {
         RestAssured.baseURI = MAIN_URL;
     }
-    public ValidatableResponse createCourier (Courier courier){
+
+    public ValidatableResponse createCourier(Courier courier) {
         return given()
                 .headers("Content-type", "application/json")
                 .and()
@@ -41,7 +41,8 @@ public class CourierClient {
                 .delete(DELETE_PATH + String.valueOf(courierId))
                 .then();
     }
-    public ValidatableResponse loginCourier(CourierCredentials courierCredentials){
+
+    public ValidatableResponse loginCourier(CourierCredentials courierCredentials) {
         Gson loginGson = new GsonBuilder().setPrettyPrinting().create();
         String loginJson = loginGson.toJson(courierCredentials);
         return given()

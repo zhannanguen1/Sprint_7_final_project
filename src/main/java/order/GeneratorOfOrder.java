@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GeneratorOfOrder {
 
-    public static OrderScooter getNewOrder(List<String> color){
+    public static OrderScooter getNewOrder(List<String> color) {
         return new OrderScooter(
                 "Harry",
                 "Potter",

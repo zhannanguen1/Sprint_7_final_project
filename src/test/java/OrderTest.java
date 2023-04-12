@@ -19,14 +19,15 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class OrderTest {
+    private final List<String> color;
     private OrderScooter orderScooter;
     private OrderUser orderUser;
-    private final List<String> color;
     private int actualTrackNumber;
 
-    public OrderTest(List<String> color){
+    public OrderTest(List<String> color) {
         this.color = color;
     }
+
     @Parameterized.Parameters(name = "Цвет самоката. Тестовые данные: {0}")
     public static Object[][] getColor() {
         return new Object[][]{
@@ -36,6 +37,7 @@ public class OrderTest {
                 {List.of()}
         };
     }
+
     @Before
     @Step("Подготовка данных для создания заказа")
     public void setUp() {
@@ -45,7 +47,7 @@ public class OrderTest {
 
     @Test
     @Step("Создаем новый заказ")
-    public void orderCanBeCreated(){
+    public void orderCanBeCreated() {
         ValidatableResponse responseCreate = orderUser.createOrder(orderScooter);
         int actualStatusCodeCreate = responseCreate.extract().statusCode();
         actualTrackNumber = responseCreate.extract().path("track");
@@ -55,6 +57,7 @@ public class OrderTest {
         String responseBody = gson.toJson(orderCreateResponse);
         assertTrue(responseBody.contains("track"));
     }
+
     @After
     @Step("Удаляем созданный заказ")
     public void cleanUp() {

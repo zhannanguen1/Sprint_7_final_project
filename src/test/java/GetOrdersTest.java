@@ -1,4 +1,3 @@
-import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import order.OrderUser;
@@ -16,13 +15,13 @@ public class GetOrdersTest {
 
     @Before
     @Step("Подготовка данных для получения списка заказов")
-    public void setUp(){
+    public void setUp() {
         orderUser = new OrderUser();
     }
 
     @Test
     @Step("Проверка списка заказов")
-    public void getListOfOrders(){
+    public void getListOfOrders() {
         ValidatableResponse responseCreate = orderUser.getOrders();
         int actualStatusCode = responseCreate.extract().statusCode();
         List<HashMap> orderBody = responseCreate.extract().path("orders");

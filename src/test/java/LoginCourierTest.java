@@ -14,14 +14,14 @@ public class LoginCourierTest {
 
     @Before
     @Step("Подготовка данных для входа курьера в систему")
-    public void setUp(){
+    public void setUp() {
         courierClient = new CourierClient();
     }
 
     @Test
     @Description("Проверка, что курьер может войти в систему")
     @Step("Логин курьера")
-    public void CourierCanLogIn(){
+    public void CourierCanLogIn() {
         CourierCredentials courierCredentials = new CourierCredentials("nnnggg1410", "1410");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();
@@ -29,10 +29,11 @@ public class LoginCourierTest {
         assertEquals(200, actualStatusCode);
         assertNotNull(id);
     }
+
     @Test
     @Description("Проверка, что курьер не может войти в систему, если не передать его login")
     @Step("Вход курьера без логина")
-    public void CourierCanNotLogInWithoutLoginParam(){
+    public void CourierCanNotLogInWithoutLoginParam() {
         CourierCredentials courierCredentials = new CourierCredentials(null, "1410");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();
@@ -44,7 +45,7 @@ public class LoginCourierTest {
     @Test
     @Description("Проверка, что курьер не может войти в систему, если не передать его password")
     @Step("Вход курьера без пароля")
-    public void CourierCanNotLogInWithoutPasswordParam(){
+    public void CourierCanNotLogInWithoutPasswordParam() {
         CourierCredentials courierCredentials = new CourierCredentials("nnnggg1410", "");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();
@@ -56,7 +57,7 @@ public class LoginCourierTest {
     @Test
     @Description("Проверка, что курьер не может войти в систему, если передать неверный логин")
     @Step("Вход курьера в систему под неверным логином")
-    public void CourierCanNotLogInWithWrongLoginParam(){
+    public void CourierCanNotLogInWithWrongLoginParam() {
         CourierCredentials courierCredentials = new CourierCredentials("nnnggg14101", "1410");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();
@@ -68,7 +69,7 @@ public class LoginCourierTest {
     @Test
     @Description("Проверка, что курьер не может войти в систему, если передать неверный пароль")
     @Step("Вход курьера в систему под неверным паролем")
-    public void CourierCanNotLogInWithWrongPasswordParam(){
+    public void CourierCanNotLogInWithWrongPasswordParam() {
         CourierCredentials courierCredentials = new CourierCredentials("nnnggg1410", "14101");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();
@@ -79,7 +80,7 @@ public class LoginCourierTest {
 
     @Test
     @Step("Вход в систему под несуществующим юзером")
-    public void CourierCanNotLogInWithUnExistingUser(){
+    public void CourierCanNotLogInWithUnExistingUser() {
         CourierCredentials courierCredentials = new CourierCredentials("no_such_user", "12345");
         ValidatableResponse response = courierClient.loginCourier(courierCredentials);
         int actualStatusCode = response.extract().statusCode();

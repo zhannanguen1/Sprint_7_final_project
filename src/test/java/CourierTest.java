@@ -15,9 +15,10 @@ public class CourierTest {
     private CourierClient courierClient;
     private Courier courier;
     private ValidatableResponse responseLogin;
+
     @Before
     @Step("Подготовка данных для создания курьера")
-    public void setUp(){
+    public void setUp() {
         courier = UniqueData.randomCourier();
         courierClient = new CourierClient();
     }
@@ -25,7 +26,7 @@ public class CourierTest {
     @Test
     @Description("Проверка создания курьера")
     @Step("Создание курьера")
-    public void canCreateCourierTest(){
+    public void canCreateCourierTest() {
         ValidatableResponse response = courierClient.createCourier(courier);
         int actualStatusCode = response.extract().statusCode();
         boolean massage = response.extract().path("ok");
