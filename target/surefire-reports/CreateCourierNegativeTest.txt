@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: CreateCourierNegativeTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.959 s <<< FAILURE! - in CreateCourierNegativeTest
-canNotCreateCourierWithNonUniqueLogin(CreateCourierNegativeTest)  Time elapsed: 0.271 s  <<< FAILURE!
-java.lang.AssertionError: expected:<409> but was:<500>
-	at CreateCourierNegativeTest.canNotCreateCourierWithNonUniqueLogin(CreateCourierNegativeTest.java:79)
-
-canNotCreateSecondCourierWithSameParams(CreateCourierNegativeTest)  Time elapsed: 0.321 s  <<< FAILURE!
-java.lang.AssertionError: expected:<409> but was:<500>
-	at CreateCourierNegativeTest.canNotCreateSecondCourierWithSameParams(CreateCourierNegativeTest.java:34)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.581 s - in CreateCourierNegativeTest

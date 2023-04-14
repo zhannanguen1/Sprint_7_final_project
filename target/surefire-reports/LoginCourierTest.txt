@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: LoginCourierTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 3, Errors: 1, Skipped: 0, Time elapsed: 1.921 s <<< FAILURE! - in LoginCourierTest
-CourierCanNotLogInWithWrongLoginParam(LoginCourierTest)  Time elapsed: 0.51 s  <<< FAILURE!
-java.lang.AssertionError: expected:<404> but was:<500>
-	at LoginCourierTest.CourierCanNotLogInWithWrongLoginParam(LoginCourierTest.java:65)
-
-CourierCanNotLogInWithWrongPasswordParam(LoginCourierTest)  Time elapsed: 0.342 s  <<< FAILURE!
-java.lang.AssertionError: expected:<404> but was:<500>
-	at LoginCourierTest.CourierCanNotLogInWithWrongPasswordParam(LoginCourierTest.java:77)
-
-CourierCanNotLogInWithUnExistingUser(LoginCourierTest)  Time elapsed: 0.529 s  <<< FAILURE!
-java.lang.AssertionError: expected:<404> but was:<500>
-	at LoginCourierTest.CourierCanNotLogInWithUnExistingUser(LoginCourierTest.java:88)
-
-CourierCanLogIn(LoginCourierTest)  Time elapsed: 0.292 s  <<< ERROR!
-java.lang.NullPointerException
-	at LoginCourierTest.CourierCanLogIn(LoginCourierTest.java:28)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.813 s - in LoginCourierTest
