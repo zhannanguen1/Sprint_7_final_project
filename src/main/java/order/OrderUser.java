@@ -3,6 +3,7 @@ package order;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import courier.CourierClient;
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
@@ -11,6 +12,7 @@ public class OrderUser extends CourierClient {
     public static final String CREATE_PATH = "/api/v1/orders";
     public static final String CANCEL_PATH = "/api/v1/orders/cancel";
 
+    @Step("Создание заказа")
     public ValidatableResponse createOrder(OrderScooter orderScooter) {
         return given()
                 .headers("Content-type", "application/json")
@@ -21,6 +23,7 @@ public class OrderUser extends CourierClient {
                 .then();
     }
 
+    @Step("Удаление заказа")
     public ValidatableResponse cancelOrder(int track) {
         Gson cancelGson = new GsonBuilder().setPrettyPrinting().create();
         OrderTrackNumber orderTrackNumber = new OrderTrackNumber(track);
@@ -34,6 +37,7 @@ public class OrderUser extends CourierClient {
                 .then();
     }
 
+    @Step("Получение списка заказов")
     public ValidatableResponse getOrders() {
         return given()
                 .headers("Content-type", "application/json")

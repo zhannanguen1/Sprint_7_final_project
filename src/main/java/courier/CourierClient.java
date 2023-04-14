@@ -2,6 +2,7 @@ package courier;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 
@@ -19,6 +20,7 @@ public class CourierClient {
         RestAssured.baseURI = MAIN_URL;
     }
 
+    @Step("Создание курьера")
     public ValidatableResponse createCourier(Courier courier) {
         return given()
                 .headers("Content-type", "application/json")
@@ -29,6 +31,7 @@ public class CourierClient {
                 .then();
     }
 
+    @Step("Удаление курьера")
     public ValidatableResponse deleteCourier(int courierId) {
         Gson deleteGson = new GsonBuilder().setPrettyPrinting().create();
         CourierDelete courierDelete = new CourierDelete(valueOf(courierId));
@@ -42,6 +45,7 @@ public class CourierClient {
                 .then();
     }
 
+    @Step("Вход курьера в систему")
     public ValidatableResponse loginCourier(CourierCredentials courierCredentials) {
         Gson loginGson = new GsonBuilder().setPrettyPrinting().create();
         String loginJson = loginGson.toJson(courierCredentials);

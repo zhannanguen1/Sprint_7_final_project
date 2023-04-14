@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: CourierTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.913 s - in CourierTest
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.422 s <<< FAILURE! - in CourierTest
+canCreateCourierTest(CourierTest)  Time elapsed: 3.345 s  <<< ERROR!
+java.lang.NullPointerException
+	at CourierTest.canCreateCourierTest(CourierTest.java:32)
+
+canCreateCourierTest(CourierTest)  Time elapsed: 3.346 s  <<< ERROR!
+java.lang.NullPointerException
+	at CourierTest.cleanUp(CourierTest.java:44)
+
